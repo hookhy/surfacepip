@@ -1,0 +1,36 @@
+Dataset: HYU-PRETERM,
+Model: GraphSage
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 1, 'lambda_div': 1, 'lambda_reg': 0.1, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 32, 'pretrained_path': '/nasdata2/khj/gnns/project_chd/out/checkpoints/GAT__GPU0_00h31m47s_on_Mar_18_2023', 'in_dim': 5, 'n_classes': 1, 'total_param': 5025}
+
+GraphSageNet(
+  (embedding_h): Linear(in_features=5, out_features=32, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+    (1): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=32, out_features=16, bias=True)
+      (1): Linear(in_features=16, out_features=1, bias=True)
+    )
+  )
+)
+
+Total Parameters: 5025
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.717142 with s.d. 0.057615
+TRAIN AUC averaged: 0.998731 with s.d. 0.002050
+
+
+    Average Convergence Time (Epochs): 214.0000 with s.d. 10.0698
+Total Time Taken: 0.6407 hrs
+Average Time Per Epoch: 1.0486 s
+
+
+All Splits Test AUCs: [0.7452369611812337, 0.7851851851851852, 0.7495662232504339, 0.770979020979021, 0.6120169082125604, 0.7418402777777777, 0.654217762913415, 0.7654761904761904, 0.7054778554778555, 0.6414285714285715]

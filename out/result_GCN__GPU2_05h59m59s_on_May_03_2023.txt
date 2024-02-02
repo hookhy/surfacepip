@@ -1,0 +1,36 @@
+Dataset: HYU-PRETERM,
+Model: GCN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 1, 'lambda_div': 1, 'lambda_reg': 0.1, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 2, 'batch_size': 32, 'pretrained_path': '/nasdata2/khj/gnns/project_chd/out/checkpoints/GAT__GPU0_00h31m47s_on_Mar_18_2023', 'in_dim': 5, 'n_classes': 1, 'total_param': 2977}
+
+GCNNet(
+  (embedding_h): Linear(in_features=5, out_features=32, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GCNLayer(in_channels=32, out_channels=32, residual=True)
+    (1): GCNLayer(in_channels=32, out_channels=32, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=32, out_features=16, bias=True)
+      (1): Linear(in_features=16, out_features=1, bias=True)
+    )
+  )
+)
+
+Total Parameters: 2977
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.704963 with s.d. 0.075778
+TRAIN AUC averaged: 0.918119 with s.d. 0.030905
+
+
+    Average Convergence Time (Epochs): 295.8000 with s.d. 34.0024
+Total Time Taken: 0.7613 hrs
+Average Time Per Epoch: 0.9019 s
+
+
+All Splits Test AUCs: [0.7963800904977376, 0.8240740740740741, 0.617698091382302, 0.5972222222222222, 0.6712505489679402, 0.6940972222222221, 0.6269044964697139, 0.7793650793650794, 0.6878787878787879, 0.7547619047619047]

@@ -1,0 +1,39 @@
+Dataset: HYU-PRETERM,
+Model: MLP
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 1, 'lambda_div': 1, 'lambda_reg': 0.1, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 32, 'pretrained_path': '/nasdata2/khj/gnns/project_chd/out/checkpoints/GAT__GPU0_00h31m47s_on_Mar_18_2023', 'in_dim': 5, 'n_classes': 1, 'total_param': 1793}
+
+MLPNet(
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (feat_mlp): Sequential(
+    (0): Linear(in_features=5, out_features=32, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.0, inplace=False)
+    (3): Linear(in_features=32, out_features=32, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.0, inplace=False)
+  )
+  (readout_mlp): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=32, out_features=16, bias=True)
+      (1): Linear(in_features=16, out_features=1, bias=True)
+    )
+  )
+)
+
+Total Parameters: 1793
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.616902 with s.d. 0.052793
+TRAIN AUC averaged: 0.654197 with s.d. 0.024463
+
+
+    Average Convergence Time (Epochs): 206.6000 with s.d. 23.5508
+Total Time Taken: 0.4696 hrs
+Average Time Per Epoch: 0.7958 s
+
+
+All Splits Test AUCs: [0.6123481781376519, 0.6342592592592593, 0.5887796414112203, 0.5895493395493395, 0.5543478260869565, 0.6625000000000001, 0.6023782980304719, 0.6083333333333334, 0.5679487179487179, 0.7485714285714286]

@@ -1,0 +1,68 @@
+{
+    "gpu": {
+        "use": false,
+        "id": 0
+    },
+    
+    "model": "PIP",
+    
+    "subgroup": true, 
+        
+    "target": "CHD",
+    
+    "use_hcp": true,
+    
+    "out_dir": "out/",
+        
+    "pretrained_path": null,
+        
+    "pruning": false,
+    
+    "net_path": "/nasdata2/khj/gnns/project_chd/Cardiac_Graph/net_mats",
+     
+    "demo_path": "/nasdata2/khj/gnns/project_chd/demo.txt",
+        
+    "hcp_demo_path": "/nasdata2/khj/gnns/project_chd/demo_hcp.txt",
+
+    "params": {
+        "seed": 41,
+        "epochs": 1000,
+        "batch_size": 32,
+        "init_lr": 1e-3,
+        "lr_reduce_factor": 0.5,
+        "lr_schedule_patience": 25,
+        "min_lr": 1e-5,
+        "weight_decay": 0.0005,
+        "print_epoch_interval": 5,
+        "max_time": 120,
+        "run_to": null
+    },
+    
+    "net_params": {
+        "L": 2,
+        "hidden_dim": 32,
+        "out_dim": 32,
+        "residual": true,
+        "edge_feat": false,
+        "readout": "mean",
+        "in_feat_dropout": 0.0,
+        "dropout": 0.0,
+        "batch_norm": true,
+        "pos_enc": false,
+        "gated": false,     
+        "n_heads": 8,
+        "self_loop": true,
+        "sage_aggregator": "mean",
+        "ppr_k": 10,
+        "alpha": 0.3,
+        "num_prot_per_class": 2,
+        "lambda_clst": 1,   
+        "lambda_sep": 0,   
+        "lambda_div": 1,    
+        "lambda_reg": 0.1,  
+        "lambda_clssep": 0,  
+        "lambda_recon": 0,  
+        "incorrect_strength": null,
+        "prot_decoding": false
+    }
+}

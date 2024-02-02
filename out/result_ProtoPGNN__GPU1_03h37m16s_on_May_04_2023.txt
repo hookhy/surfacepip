@@ -1,0 +1,30 @@
+Dataset: HYU-PRETERM,
+Model: ProtoPGNN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 0.001, 'lambda_sep': 0.001, 'lambda_div': 1, 'lambda_reg': 0.1, 'lambda_clssep': 0, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 1, 'batch_size': 32, 'pretrained_path': '/nasdata2/khj/gnns/project_chd/out/checkpoints/GAT__GPU0_00h31m47s_on_Mar_18_2023', 'in_dim': 5, 'n_classes': 1, 'total_param': 4612}
+
+ProtoPGNNNet(
+  (embedding_h): Linear(in_features=5, out_features=32, bias=True)
+  (encoders): ModuleList(
+    (0): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+    (1): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+  )
+  (FC_layers): Linear(in_features=4, out_features=1, bias=False)
+)
+
+Total Parameters: 4612
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.597829 with s.d. 0.094513
+TRAIN AUC averaged: 0.891860 with s.d. 0.049069
+
+
+    Average Convergence Time (Epochs): 267.6000 with s.d. 44.3851
+Total Time Taken: 3.8765 hrs
+Average Time Per Epoch: 5.1745 s
+
+
+All Splits Test AUCs: [0.7103873938239263, 0.7888888888888888, 0.523423944476576, 0.6679292929292929, 0.48899319279754067, 0.4954861111111112, 0.5854700854700855, 0.5134920634920634, 0.6085081585081584, 0.5957142857142856]

@@ -1,0 +1,45 @@
+Dataset: HYU-PRETERM,
+Model: PxGNN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 1, 'lambda_sep': 0, 'lambda_div': 1, 'lambda_reg': 1.0, 'lambda_clssep': 0, 'lambda_recon': 1.0, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 3, 'batch_size': 32, 'pretrained_path': '/nasdata2/khj/gnns/project_chd/out/checkpoints/GraphSagePx__GPU0_03h17m49s_on_May_13_2023', 'in_dim': 5, 'n_classes': 1, 'total_param': 5108}
+
+PxGNNNet(
+  (embedding_h): Linear(in_features=5, out_features=32, bias=True)
+  (encoders): ModuleList(
+    (0): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+    (1): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+  )
+  (dec1): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=32, out_features=16, bias=True)
+      (1): Linear(in_features=16, out_features=5, bias=True)
+    )
+  )
+  (dec2): Linear(in_features=10, out_features=1, bias=True)
+  (FC_layers): Linear(in_features=4, out_features=1, bias=False)
+  (p_pos): ParameterList(
+      (0): Parameter containing: [torch.cuda.FloatTensor of size 175x32 (GPU 0)]
+      (1): Parameter containing: [torch.cuda.FloatTensor of size 190x32 (GPU 0)]
+  )
+  (p_neg): ParameterList(
+      (0): Parameter containing: [torch.cuda.FloatTensor of size 173x32 (GPU 0)]
+      (1): Parameter containing: [torch.cuda.FloatTensor of size 149x32 (GPU 0)]
+  )
+)
+
+Total Parameters: 5108
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.583197 with s.d. 0.115457
+TRAIN AUC averaged: 0.586945 with s.d. 0.128677
+
+
+    Average Convergence Time (Epochs): 202.9000 with s.d. 26.5498
+Total Time Taken: 5.1154 hrs
+Average Time Per Epoch: 8.9450 s
+
+
+All Splits Test AUCs: [0.3033460347701834, 0.700925925925926, 0.7339502602660497, 0.537004662004662, 0.6712505489679402, 0.5523437499999999, 0.6057227796358231, 0.5880952380952381, 0.5119463869463869, 0.6273809523809524]

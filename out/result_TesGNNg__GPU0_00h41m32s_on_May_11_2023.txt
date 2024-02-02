@@ -1,0 +1,30 @@
+Dataset: HYU-PRETERM,
+Model: TesGNNg
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 32, 'init_lr': 0.001, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-05, 'weight_decay': 0.0005, 'print_epoch_interval': 5, 'max_time': 120, 'run_to': None}
+
+net_params={'L': 2, 'hidden_dim': 32, 'out_dim': 32, 'residual': True, 'edge_feat': False, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.0, 'batch_norm': True, 'pos_enc': False, 'gated': False, 'n_heads': 8, 'self_loop': True, 'sage_aggregator': 'mean', 'ppr_k': 10, 'alpha': 0.3, 'num_prot_per_class': 2, 'lambda_clst': 0.001, 'lambda_sep': 0.001, 'lambda_div': 1.0, 'lambda_reg': 0.1, 'lambda_clssep': 0.001, 'lambda_recon': 0, 'incorrect_strength': None, 'prot_decoding': False, 'device': device(type='cuda'), 'gpu_id': 0, 'batch_size': 32, 'pretrained_path': None, 'in_dim': 5, 'n_classes': 1, 'total_param': 4612}
+
+TesGNNgNet(
+  (embedding_h): Linear(in_features=5, out_features=32, bias=True)
+  (encoders): ModuleList(
+    (0): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+    (1): GraphSageLayer(in_channels=32, out_channels=32, aggregator=mean, residual=True)
+  )
+  (FC_layers): Linear(in_features=4, out_features=1, bias=False)
+)
+
+Total Parameters: 4612
+
+
+    FINAL RESULTS
+TEST AUC averaged: 0.684041 with s.d. 0.089468
+TRAIN AUC averaged: 0.998784 with s.d. 0.001760
+
+
+    Average Convergence Time (Epochs): 253.5000 with s.d. 7.1169
+Total Time Taken: 1.8641 hrs
+Average Time Per Epoch: 2.6084 s
+
+
+All Splits Test AUCs: [0.8102325950623164, 0.6129629629629629, 0.5659340659340659, 0.7332944832944832, 0.666145147123408, 0.5602430555555555, 0.654496469713861, 0.6694444444444445, 0.7288461538461539, 0.8388095238095239]
