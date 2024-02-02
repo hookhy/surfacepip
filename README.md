@@ -4,7 +4,7 @@
 
 This repository is the official implementation of the PIP (In preparation). 
 
-![Untitled.pdf](https://github.com/hookhy/PIP/files/14137157/Untitled.pdf)
+![Untitled](https://github.com/hookhy/PIP/assets/84267304/8fe4f5d8-1f42-4bee-bc20-6f7cb4274c0a)
 
 
 ## Requirements
